@@ -1,4 +1,4 @@
-# Week 7: Interactive Portfolio
+# Week 6: Interactive Portfolio
 ## From Static to Dynamic - Adding JavaScript Interactivity
 
 ### Learning Objectives
@@ -9,28 +9,29 @@ By completing this project, you will:
 - Build real-time form validation with error handling
 - Animate elements based on user interactions and scroll position
 - Filter and show/hide content dynamically
-- Build upon your Week 5 portfolio to create a professional, interactive website
+- Build upon your Week 4 portfolio to create a professional, interactive website
 
 ### Prerequisites
 Before starting, you should have:
-- Completed Week 7 lecture on DOM Manipulation & Events
+- Completed Week 6 lecture on DOM Manipulation & Events
 - Reviewed prep work chapters:
+  - **Modern JavaScript Chapters 4-5**: Functions and Arrays/Objects
   - **Modern JavaScript Chapter 7**: DOM Manipulation
   - **Modern JavaScript Chapter 8**: Events
   - **(Optional) Chapter 9**: LocalStorage
-- **(Recommended)** Your code from Week 5 - Modern Layout Portfolio
+- **(Recommended)** Your code from Week 4 - Modern Layout Portfolio
 
 ### Project Overview
-This week, you'll transform your static Week 5 portfolio into a fully interactive web application! You'll add JavaScript functionality to make navigation smooth, projects filterable, skills animated, forms validated, and mobile menus functional - all without changing your beautiful HTML/CSS foundation.
+This week, you'll transform your static Week 4 portfolio into a fully interactive web application! You'll add JavaScript functionality to make navigation smooth, projects filterable, skills animated, forms validated, and mobile menus functional - all without changing your beautiful HTML/CSS foundation.
 
-**Why This Matters**: This project demonstrates how JavaScript brings static designs to life, creating engaging user experiences while maintaining clean separation of concerns. Plus, it sets the perfect foundation for Week 8 when we convert everything to React!
+**Why This Matters**: This project demonstrates how JavaScript brings static designs to life, creating engaging user experiences while maintaining clean separation of concerns. Plus, it sets the perfect foundation for Week 7 when we convert everything to React!
 
 ---
 
 ## Getting Started
 
 ### First: Accept the GitHub Classroom Assignment
-Your instructor will provide a GitHub Classroom assignment link. Accepting it will create a new repository with the Week 7 starter code.
+Your instructor will provide a GitHub Classroom assignment link. Accepting it will create a new repository with the Week 6 starter code.
 
 1. **Clone your new repository:**
    ```bash
@@ -42,23 +43,23 @@ Your instructor will provide a GitHub Classroom assignment link. Accepting it wi
 
 ---
 
-## Path A: Continue from Week 5 (Recommended)
+## Path A: Continue from Week 4 (Recommended)
 
-If you completed the Week 5 Modern Layout Portfolio project and want to build upon it:
+If you completed the Week 4 Modern Layout Portfolio project and want to build upon it:
 
 ### Step 1: Prepare Your Repository
 1. **Delete the starter files** in your cloned repository (but **keep the .git folder!**)
    ```bash
-   # In your cloned Week 7 repository
+   # In your cloned Week 6 repository
    rm index.html styles.css script.js
    # DO NOT delete the .git folder
    ```
 
-2. **Copy your Week 5 files** into the cloned repository folder:
+2. **Copy your Week 4 files** into the cloned repository folder:
    ```bash
-   # Copy your Week 5 files
-   cp /path/to/your/week5/index.html .
-   cp /path/to/your/week5/styles.css .
+   # Copy your Week 4 files
+   cp /path/to/your/week4/index.html .
+   cp /path/to/your/week4/styles.css .
    # Copy any assets if you have them
    ```
 
@@ -192,11 +193,11 @@ Jump to the "Step-by-Step JavaScript Implementation" section to add interactivit
 
 ## Path B: Fresh Start
 
-If you didn't complete Week 5 or want to start fresh, use the provided starter files:
+If you didn't complete Week 4 or want to start fresh, use the provided starter files:
 
 ### Step 1: Review the Starter Files
 Your cloned repository includes:
-- `index.html` - Complete portfolio structure (based on Week 5)
+- `index.html` - Complete portfolio structure (based on Week 4)
 - `styles.css` - Modern CSS with Flexbox/Grid layouts
 - `script.js` - JavaScript file with TODO comments
 
@@ -714,7 +715,7 @@ Before submitting, verify:
 
 ## What's Next?
 
-**Week 8: React Introduction**
+**Week 7: React Introduction**
 - We'll convert this portfolio to React components
 - You'll see how React simplifies DOM manipulation
 - Understanding vanilla JavaScript makes React much easier to learn!
