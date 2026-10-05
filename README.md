@@ -30,16 +30,18 @@ This week, you'll transform your static Week 4 portfolio into a fully interactiv
 
 ## Getting Started
 
-### First: Accept the GitHub Classroom Assignment
-Your instructor will provide a GitHub Classroom assignment link. Accepting it will create a new repository with the Week 6 starter code.
+### First: Create your own copy of this template
+This repository is a GitHub **template** (GitHub Classroom is not used this term). Make your own copy of it, then clone that copy.
 
-1. **Clone your new repository:**
+1. On this repository's page, click the green **Use this template** button and choose **Create a new repository**. On the next screen: Owner = your own GitHub account, Repository name = `in-person-project-4-<your-github-username>`, visibility **Public**. Click **Create repository**.
+
+2. **Clone your new repository:**
    ```bash
-   git clone [your-github-classroom-repo-url]
-   cd [your-repo-name]
+   git clone https://github.com/<your-github-username>/in-person-project-4-<your-github-username>.git
+   cd in-person-project-4-<your-github-username>
    ```
 
-2. **Choose Your Path:**
+3. **Choose Your Path:**
 
 ---
 
