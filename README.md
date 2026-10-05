@@ -575,67 +575,46 @@ contactForm.addEventListener('submit', (e) => {
 
 ---
 
-## Challenge Extensions
+## Extension Activities (requirements and hints only, no code given)
 
-### Extension 1: Theme Switcher with LocalStorage
-Add a dark mode toggle that persists across page refreshes:
+If you finish the five parts early, these are not bonus busywork. They are the same kind of thinking you did in Parts 1 to 5, aimed at slightly less obvious problems, and there is no code to copy: each task gives you the requirement, what "done" looks like, one hint, and why it matters. Everything is doable with today's tools (`querySelector`, `addEventListener`, `classList`, the `input`, `click`, `submit`, `keydown` and `scroll` events, string and array methods from chapters 4 and 5; Tier 2's task 3 also uses chapter 9's `localStorage`). Work through the tiers in order.
 
-```javascript
-// Add theme toggle button to your HTML navbar:
-// <button class="theme-toggle">🌙</button>
+### Tier 1 (about 10 to 15 minutes): do both
 
-const themeToggle = document.querySelector('.theme-toggle');
+**1. Show the count behind the filter**
+- **Goal:** After any filter button click, one line under the buttons reads "Showing 2 of 3 projects" with real numbers.
+- **Done when:** the line updates on every click, including **All**; the second number is the total number of cards; the first number is exactly how many cards are visible, with nothing counted twice.
+- **Hint:** Inside your Part 2 click handler you already loop over every card deciding show or hide. Count the ones you keep while you decide, then write that number into one new element you add to `index.html` once. `textContent` is enough; you are writing plain text.
+- **Why it matters:** every list UI tells the user how much it is hiding, and a correct count is the cheapest proof that your filter logic is right.
 
-// Load saved theme
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    document.body.classList.add('dark-theme');
-    themeToggle.textContent = '☀️';
-}
+**2. Character counter on the message box**
+- **Goal:** A live counter under the message textarea reading "0 / 300", turning into an error past 300.
+- **Done when:** the counter updates on every keystroke, including deletions and a paste; past 300 characters the counter carries your existing `error` class and the form refuses to submit; back under 300 it recovers.
+- **Hint:** The `input` event you used for Part 5 fires on paste and delete too, so one listener is enough. `.value.length` is the count. Reuse the `error` and `success` classes you already styled instead of inventing new ones, and add the over-limit check to the same place Part 5 decides whether the form may submit.
+- **Why it matters:** live feedback that reuses the validation rules is the pattern behind every "280 characters left" box you have seen.
 
-// Toggle theme
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
+### Tier 2 (about 15 to 20 minutes): pick one, or do both if you have time; neither is required
 
-    if (document.body.classList.contains('dark-theme')) {
-        localStorage.setItem('theme', 'dark');
-        themeToggle.textContent = '☀️';
-    } else {
-        localStorage.setItem('theme', 'light');
-        themeToggle.textContent = '🌙';
-    }
-});
-```
+**3. A theme toggle that remembers**
+- **Goal:** A button in the navbar switches the whole page between a light and a dark theme, and the page reopens in the theme you chose after a reload.
+- **Done when:** one click flips a class on `<body>` and flips the button's label; a reload keeps the chosen theme with no flash of the wrong one; the toggle works after Parts 1 to 3 have run (nothing else breaks).
+- **Hint:** The class on `<body>` IS the theme; write the dark colors in CSS under that class and let JavaScript only add or remove it. `localStorage` stores strings only, so store `"dark"` or `"light"`, and read it back once at the top of `script.js`, before any other code runs, so the right class is on `<body>` as early as possible.
+- **Why it matters:** a preference that survives the page is the smallest version of persistent state, and it is exactly what chapter 9 is for.
 
-### Extension 2: Project Sorting
-Add sorting functionality for projects:
+**4. Keyboard filtering that combines with the buttons**
+- **Goal:** A search box above the projects filters the cards as you type, and it combines with the filter buttons: a card shows only if it matches the active button AND the typed text.
+- **Done when:** typing `re` shows only cards with a tag containing "re" (case does not matter); clearing the box restores the active button's result; clicking a different button re-applies whatever is typed; **All** plus an empty box shows every card.
+- **Hint:** Write one function, `applyFilters()`, that reads the active button and the box and decides every card, then call that one function from the button click handler and from the box's `input` handler. For the text match, lowercase both sides and use `.includes()` on each tag's `textContent`; a card matches if any one of its tags matches.
+- **Why it matters:** two inputs and one function that derives the view from both is the shape React makes explicit next week; you are building it by hand today.
 
-```javascript
-// Add sort dropdown to HTML:
-// <select id="sort-projects">
-//     <option value="date">Sort by Date</option>
-//     <option value="title">Sort by Title</option>
-// </select>
+### Tier 3 (about 15 to 25 minutes, a bounded task): for the student who is still ahead
 
-const sortSelect = document.querySelector('#sort-projects');
-
-sortSelect.addEventListener('change', () => {
-    const projectsGrid = document.querySelector('.projects-grid');
-    const projects = Array.from(projectsGrid.querySelectorAll('.project-card'));
-
-    projects.sort((a, b) => {
-        if (sortSelect.value === 'title') {
-            const titleA = a.querySelector('.project-title').textContent;
-            const titleB = b.querySelector('.project-title').textContent;
-            return titleA.localeCompare(titleB);
-        }
-        // Add other sort criteria as needed
-    });
-
-    // Re-append in sorted order
-    projects.forEach(project => projectsGrid.appendChild(project));
-});
-```
+**5. Project details without leaving the page**
+- **Goal:** Clicking a project card opens one details panel showing that card's title, description and tags; a close button or the Escape key closes it.
+- **Done when:** each of the three cards opens the panel with ITS OWN content, not the first card's; Escape closes it from anywhere on the page; the close button closes it; the filter buttons still work after the panel has been opened and closed.
+- **Ceiling, stop here:** no new data anywhere; everything the panel shows is read from the card that was clicked. One panel element in the HTML, reused for every card, never one per card. A `<dialog>` element or a plain `<div>` you show and hide with a class are both fine. No animation, no URL change, no fetching.
+- **Hint:** In a click handler on a card, `event.currentTarget` is the card you clicked, so `querySelector` on THAT element, not on `document`, finds its own title, description and tags. Listen for `keydown` on `document` and check `event.key === "Escape"`. Copy text across with `textContent`; for the tags, loop over the clicked card's tag elements and build the panel's list the same way Part 2 loops over cards.
+- **Why it matters:** one reusable panel filled from whatever element was clicked is the component mindset in plain DOM, and it is the last thing you will write by hand before React does it for you.
 
 ---
 

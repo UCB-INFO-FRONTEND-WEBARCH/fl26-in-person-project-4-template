@@ -153,22 +153,12 @@ function clearError(input) {
 
 
 // ============================================
-// BONUS: THEME SWITCHER (Advanced - Optional)
+// EXTENSION ACTIVITIES (after Parts 1 to 5)
 // ============================================
 
-// TODO: Create a theme toggle button in HTML (add to navbar)
-// TODO: Add click listener to toggle between light/dark themes
-// Hint: Toggle a 'dark-theme' class on body
-// TODO: Save preference to localStorage
-// TODO: Load saved theme on page load
-
-// Example starter code:
-// const themeToggle = document.querySelector('.theme-toggle');
-// themeToggle.addEventListener('click', () => {
-//     document.body.classList.toggle('dark-theme');
-//     const theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
-//     localStorage.setItem('theme', theme);
-// });
+// See the README's "Extension Activities" section: three tiers of tasks with
+// the requirement, what done looks like, one hint, and why it matters.
+// No code is given for them on purpose. Add your extension code below Part 5.
 
 
 // ============================================
